@@ -3,128 +3,214 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CupFut - Mundial 2026</title>
-  <meta name="description" content="CupFut es la app definitiva para el Mundial 2026. Trivias, predicciones, estadísticas en vivo y mucho más.">
+  <title>CupFut — Vive el Mundial 2026 como nunca antes</title>
+  <meta name="description" content="CupFut es la app definitiva para el Mundial 2026. Trivias en vivo, predicciones, estadísticas, wallpapers exclusivos y mucho más.">
+  <meta name="theme-color" content="#000000">
+
+  <meta property="og:title" content="CupFut — Vive el Mundial 2026 como nunca antes">
+  <meta property="og:description" content="Trivias en tiempo real, predicciones, estadísticas, wallpapers exclusivos. La experiencia definitiva para los verdaderos fans del fútbol.">
+  <meta property="og:image" content="assets/og-banner.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cupfut.app">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CupFut — Vive el Mundial 2026 como nunca antes">
+  <meta name="twitter:description" content="Trivias en tiempo real, predicciones, estadísticas, wallpapers exclusivos.">
+  <meta name="twitter:image" content="assets/og-banner.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 </head>
 <body>
-  <header class="header">
+
+  <!-- Header -->
+  <header class="header" role="banner">
     <div class="container">
-      <img src="assets/logo-letra-cupfut.png" alt="CupFut" class="logo">
-      <nav class="nav">
+      <img src="assets/logo-letra-cupfut.png" alt="CupFut" class="logo" width="96" height="32">
+      <nav class="nav" role="navigation" aria-label="Navegación principal">
         <a href="#features">Características</a>
+        <a href="#sobres">Wallpapers</a>
         <a href="#about">Acerca de</a>
         <a href="#download" class="btn-nav">Descargar</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
+  <!-- Ticker / Match Strip -->
+  <div class="ticker-wrap" role="marquee" aria-label="Partidos en vivo">
+    <div class="ticker-inner" id="tickerTrack">
+    </div>
+  </div>
+  <div class="ticker-ghost"></div>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Introducción">
     <div class="container">
       <div class="hero-content">
-        <img src="assets/logo-copa-cupfut.png" alt="Copa CupFut" class="hero-copa">
         <h1>Vive el <span class="gold">Mundial 2026</span> como nunca antes</h1>
         <p class="hero-sub">Trivias en tiempo real, predicciones, estadísticas, wallpapers exclusivos y mucho más. La experiencia definitiva para los verdaderos fans del fútbol.</p>
-        <div class="hero-buttons">
-          <a href="#" class="btn btn-primary">
-            <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
-            Google Play
-          </a>
-          <a href="#" class="btn btn-secondary">
-            <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/></svg>
-            App Store
-          </a>
+        <div class="hero-actions">
+          <div class="hero-buttons">
+            <a href="#" class="btn btn-primary" aria-label="Descargar en Google Play">
+              <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
+              Google Play
+            </a>
+            <a href="#" class="btn btn-secondary" aria-label="Descargar en App Store">
+              <svg width="24" height="24" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/></svg>
+              App Store
+            </a>
+          </div>
+          <p class="hero-note">Próximamente disponible</p>
         </div>
-        <p class="hero-note">Próximamente disponible</p>
+      </div>
+      <div class="hero-mockup" aria-label="Vista previa de la app">
+        <img src="assets/mockup.png" alt="CupFut app en dispositivo móvil" class="mockup-device" width="542" height="460" loading="eager">
+        <div class="trivia-card" id="triviaCard">
+          <div class="trivia-card-inner" id="triviaWidget">
+            <div class="trivia-header">
+              <span class="trivia-live"></span>
+              <span class="trivia-live-label">Trivia exprés</span>
+            </div>
+            <p class="trivia-question" id="triviaQuestion">¿Qué selección ha ganado más Mundiales?</p>
+            <div class="trivia-options" id="triviaOptions">
+              <button class="trivia-btn" data-index="0">Argentina</button>
+              <button class="trivia-btn" data-index="1">Alemania</button>
+              <button class="trivia-btn" data-index="2">Brasil</button>
+            </div>
+          </div>
+          <div class="trivia-result" id="triviaResult">
+            <div class="trivia-result-icon">⚽</div>
+            <div class="trivia-result-text">¡+50 monedas!</div>
+            <div class="trivia-result-sub">Responde bien y únete a la lista de espera</div>
+            <div class="waitlist-form" id="waitlistForm">
+              <div class="form-group">
+                <input type="email" id="waitlistEmail" placeholder="tu@email.com" required aria-label="Correo electrónico">
+                <button class="btn-submit" id="waitlistSubmit" type="button">Unirme</button>
+              </div>
+              <div class="form-feedback" id="waitlistFeedback"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="features" class="features">
+  <!-- Features -->
+  <section id="features" class="features section" aria-label="Características">
     <div class="container">
       <h2 class="section-title">Todo lo que necesitas</h2>
+      <p class="section-sub">Cada función está pensada para que sientas el Mundial más cerca que nunca.</p>
       <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">⚽</div>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">⚽</span>
           <h3>Trivias en vivo</h3>
-          <p>Compite contra otros fans en tiempo real con partidos de preguntas sobre fútbol. Gana monedas por cada respuesta correcta y demuestra quién sabe más del Mundial 2026.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
+          <p>Compite contra otros fans en tiempo real con partidos de preguntas sobre fútbol. Gana monedas por cada respuesta correcta.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">📊</span>
           <h3>Estadísticas en vivo</h3>
-          <p>Resultados actualizados, tablas de posiciones, enfrentamientos cara a cara, datos de jugadores y equipos. Todo sincronizado en tiempo real durante cada partido.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔮</div>
+          <p>Resultados actualizados, tablas de posiciones, enfrentamientos cara a cara. Todo sincronizado en tiempo real durante cada partido.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">🔮</span>
           <h3>Predicciones</h3>
-          <p>Pronostica resultados de los partidos y acumula puntos. Compara tus aciertos con tus amigos y el resto de la comunidad en el ranking global.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👥</div>
+          <p>Pronostica resultados y acumula puntos. Compara tus aciertos con tus amigos y la comunidad en el ranking global.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">👥</span>
           <h3>Amigos y chat</h3>
-          <p>Agrega amigos por código único, chatea en tiempo real, envía solicitudes y juega partidos de trivia juntos. La comunidad mundialista te espera.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎨</div>
+          <p>Agrega amigos por código único, chatea en tiempo real y juega partidos de trivia juntos. La comunidad mundialista te espera.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">🎨</span>
           <h3>Wallpapers exclusivos</h3>
-          <p>Colecciona fondos de pantalla únicos de tus selecciones y jugadores favoritos. Consigue variantes raras, especiales y ultimate para personalizar tu perfil.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🏆</div>
+          <p>Colecciona fondos de pantalla únicos de tus selecciones favoritas. Consigue variantes raras, especiales y ultimate.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">🏆</span>
           <h3>Pase Mundialista</h3>
-          <p>Desbloquea recompensas especiales, monedas, wallpapers y contenido premium a medida que avanza el torneo. Cada día hay nuevos desafíos y recompensas.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🎁</div>
+          <p>Desbloquea recompensas especiales, monedas y contenido premium a medida que avanza el torneo. Nuevos desafíos cada día.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">🎁</span>
           <h3>Eventos y sorteos</h3>
-          <p>Participa en eventos temáticos diarios, gira la ruleta de premios y compite en torneos relámpago para ganar monedas, passes y contenido exclusivo.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💰</div>
+          <p>Participa en eventos temáticos diarios, gira la ruleta de premios y compite en torneos relámpago para ganar contenido exclusivo.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">💰</span>
           <h3>Tienda y recompensas</h3>
-          <p>Gasta tus monedas en la tienda: desde passes especiales hasta fondos de pantalla premium. También puedes canjear códigos promocionales por recompensas únicas.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
+          <p>Gasta tus monedas en la tienda: passes especiales, fondos de pantalla premium y códigos promocionales.</p>
+        </article>
+        <article class="feature-card fade-up">
+          <span class="feature-icon" role="img" aria-hidden="true">🤖</span>
           <h3>Modo práctica</h3>
-          <p>Entrena contra bots cuando no haya conexión o quieras mejorar tu velocidad de respuesta. Ideal para practicar antes de enfrentarte a jugadores reales.</p>
+          <p>Entrena contra bots cuando no haya conexión o quieras mejorar tu velocidad de respuesta antes de enfrentarte a jugadores reales.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobres (Wallpaper Unboxing) -->
+  <section id="sobres" class="sobres section" aria-label="Wallpapers coleccionables">
+    <div class="container">
+      <h2 class="section-title">Colecciona wallpapers únicos</h2>
+      <p class="section-sub">Abre sobres y descubre fondos exclusivos de tus selecciones favoritas. Cada rareza brilla con su propio estilo.</p>
+      <div class="sobres-content">
+        <div class="sobres-preview" id="sobresPreview">
+          <span class="placeholder" id="sobresPlaceholder">Haz clic en "Abrir sobre" para descubrir un wallpaper</span>
+          <img class="wallpaper-reveal" id="wallpaperImg" src="" alt="Wallpaper desbloqueado">
+          <span class="sobres-badge" id="sobresBadge"></span>
+        </div>
+        <div class="sobres-name" id="sobresName"></div>
+        <div class="sobres-controls">
+          <button class="btn-unbox" id="btnUnbox">
+            <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 1a2 2 0 0 1 2 2v4h4a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h4V3a2 2 0 0 1 2-2z"/></svg>
+            Abrir sobre
+          </button>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="about">
+  <!-- About -->
+  <section id="about" class="about section" aria-label="Acerca de CupFut">
     <div class="container">
       <div class="about-content">
-        <img src="assets/logo-copa-cupfut.png" alt="Copa CupFut" class="about-copa">
+        <img src="assets/logo-copa-cupfut.png" alt="Copa CupFut" class="about-icon" width="80" height="80">
         <h2 class="section-title">Hecha por fans, para fans</h2>
         <p>CupFut nació de la pasión por el fútbol y los mundiales. Queremos que cada fan viva el Mundial 2026 de una forma única, combinando conocimiento, diversión y competición en una sola app. Desde trivias en tiempo real hasta una tienda de wallpapers exclusivos, cada función está pensada para que sientas el torneo más cerca que nunca.</p>
       </div>
     </div>
   </section>
 
-  <section id="download" class="download">
+  <!-- Download -->
+  <section id="download" class="download section" aria-label="Descargar">
     <div class="container">
       <h2 class="section-title">Descarga CupFut</h2>
       <p>Disponible para Android y iOS. Prepárate para el Mundial 2026.</p>
       <div class="download-buttons">
-        <a href="#" class="btn btn-primary btn-lg">
-          <svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
+        <a href="#" class="btn btn-primary btn-lg" aria-label="Descargar en Google Play">
+          <svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14.222 9.374c1.037-.61 1.037-2.137 0-2.748L11.528 5.04 8.32 8l3.207 2.96zm-3.595 2.116L7.583 8.68 1.03 14.73c.201 1.029 1.36 1.61 2.303 1.055zM1 13.396V2.603L6.846 8zM1.03 1.27l6.553 6.05 3.044-2.81L3.333.215C2.39-.341 1.231.24 1.03 1.27"/></svg>
           Google Play
         </a>
-        <a href="#" class="btn btn-secondary btn-lg">
-          <svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/></svg>
+        <a href="#" class="btn btn-secondary btn-lg" aria-label="Descargar en App Store">
+          <svg width="28" height="28" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M11.182.008C11.148-.03 9.923.023 8.857 1.18c-1.066 1.156-.902 2.482-.878 2.516s1.52.087 2.475-1.258.762-2.391.728-2.43m3.314 11.733c-.048-.096-2.325-1.234-2.113-3.422s1.675-2.789 1.698-2.854-.597-.79-1.254-1.157a3.7 3.7 0 0 0-1.563-.434c-.108-.003-.483-.095-1.254.116-.508.139-1.653.589-1.968.607-.316.018-1.256-.522-2.267-.665-.647-.125-1.333.131-1.824.328-.49.196-1.422.754-2.074 2.237-.652 1.482-.311 3.83-.067 4.56s.625 1.924 1.273 2.796c.576.984 1.34 1.667 1.659 1.899s1.219.386 1.843.067c.502-.308 1.408-.485 1.766-.472.357.013 1.061.154 1.782.539.571.197 1.111.115 1.652-.105.541-.221 1.324-1.059 2.238-2.758q.52-1.185.473-1.282"/></svg>
           App Store
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
     <div class="container">
       <div class="footer-content">
-        <img src="assets/logo-letra-cupfut.png" alt="CupFut" class="footer-logo">
+        <img src="assets/logo-letra-cupfut.png" alt="CupFut" class="footer-logo" width="72" height="24">
         <div class="footer-links">
           <a href="privacy.html">Privacidad</a>
           <a href="terms.html">Términos</a>
@@ -134,6 +220,6 @@
     </div>
   </footer>
 
-  <script src="js/script.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>
