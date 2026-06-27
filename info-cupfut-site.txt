@@ -1,0 +1,112 @@
+=== CUPSITE - INFORMACIÓN COMPLETA ===
+
+== DESCRIPCIÓN DEL PROYECTO ==
+Landing page para la app CupFut (app de trivias y estadísticas del Mundial 2026).
+La app está hecha en Flutter y usa Supabase como backend.
+El propósito de la landing es promocionar la app y permitir su descarga (Google Play y App Store).
+
+== ESTRUCTURA DE ARCHIVOS ==
+cupfut-site/
+├── index.html                # Landing principal
+├── privacy.html              # Política de privacidad
+├── terms.html                # Términos del servicio
+├── README.md                 # Documentación básica
+├── assets/
+│   ├── logo-copa-cupfut.png  # Logo con copa (203KB, PNG)
+│   ├── logo-letra-cupfut.png # Logo solo texto (139KB, PNG)
+│   └── favicon.svg           # Favicon SVG
+├── css/
+│   └── style.css             # Estilos completos
+└── js/
+    └── script.js             # JS mínimo (ocultar header al scroll)
+
+== IMÁGENES (desde la app Flutter) ==
+- logo-copa-cupfut.png: Logo con una copa (se usa en hero y about, 140px hero / 100px about)
+  usado en Flutter desde: lib/features/home/home_screen.dart (120x120),
+  lib/features/auth/login_screen.dart, lib/features/auth/register_screen.dart
+- logo-letra-cupfut.png: Solo el texto "CupFut" (se usa en header y footer, 32px)
+  usado en Flutter desde: lib/widgets/app_logo_header.dart, lib/features/home/home_screen.dart
+- splash_logo_sinbackground.png (no se usa en landing)
+
+== BRANDING (desde app Flutter) ==
+Extraído de lib/core/theme.dart:
+- Primary: #D4AF37 (gold)
+- Secondary: #D4AF37
+- Background: #000000
+- Surface: #161B22
+- Card: #21262D
+- Text primary: #F0F6FC
+- Text secondary: #8B949E
+- Rarity special: #00BFFF
+- Rarity premium: #9B30FF
+- Rarity ultimate: #FFD700
+
+Nombre de la app: CupFut
+Tagline/slogan: "Vive el Mundial 2026 como nunca antes"
+
+== CONTENIDO ACTUAL DE LA LANDING ==
+
+=== HEADER ===
+- Logo (logo-letra-cupfut.png) a la izquierda
+- Nav: Características, Acerca de, Descargar (botón gold)
+- Fixed, con backdrop-filter blur, se oculta al hacer scroll hacia abajo
+
+=== HERO ===
+- Logo copa (logo-copa-cupfut.png) centrado, 210px, con drop-shadow gold
+- Título: "Vive el Mundial 2026 como nunca antes" con "Mundial 2026" en gold
+- Subtítulo descriptivo
+- 2 botones: Google Play y App Store (con SVGs de Bootstrap Icons)
+- Texto "Próximamente disponible"
+
+=== CARACTERÍSTICAS (9 cards) ===
+Grid responsivo de 3 columnas, cada card con emoji + título + descripción detallada:
+1. ⚽ Trivias en vivo - Competir en tiempo real, partidos de preguntas, ganar monedas
+2. 📊 Estadísticas en vivo - Resultados, tablas, enfrentamientos, datos de jugadores
+3. 🔮 Predicciones - Pronosticar resultados, ranking global
+4. 👥 Amigos y chat - Código único, chat en tiempo real, partidos juntos
+5. 🎨 Wallpapers exclusivos - Fondos, variantes raras/especiales/ultimate
+6. 🏆 Pase Mundialista - Recompensas, monedas, contenido premium
+7. 🎁 Eventos y sorteos - Eventos diarios, ruleta de premios, torneos relámpago
+8. 💰 Tienda y recompensas - Canjear monedas, passes, códigos promocionales
+9. 🤖 Modo práctica - Entrenar contra bots, mejorar velocidad
+
+=== ABOUT ===
+- Logo copa pequeño (100px)
+- Título: "Hecha por fans, para fans"
+- Párrafo sobre la historia y propósito de la app
+
+=== DOWNLOAD ===
+- Título + descripción
+- 2 botones grandes: Google Play y App Store
+
+=== FOOTER ===
+- Logo texto (opacity 0.5)
+- Links: Privacidad, Términos
+- Copyright
+
+== ESTILOS CSS (style.css) ==
+- Tema dark (#000 fondo)
+- Tipografía: sistema nativa (SF/Helvetica/Segoe UI)
+- Header fixed con glassmorphism
+- Botones: gold (primary) y gris oscuro (secondary) con hover effects
+- Section title con underline gold de 60px
+- Cards con borde hover a gold y translateY
+- Responsive: 3 breakpoints (768px, 600px, 380px)
+  - 768px: grid 1 columna, padding reducido
+  - 600px: header column, botones full width, logo más chico
+  - 380px: tipografía más pequeña
+
+== MEJORAS SOLICITADAS / PENDIENTES ==
+- Mejorar estética general y dar recomendaciones de diseño
+- Los botones de descarga apuntan a "#" (sin links reales aún)
+- Posiblemente agregar sección de screenshots de la app
+- Posiblemente agregar formulario de notificaciones para cuando la app esté disponible
+- Verificar que el diseño sea totalmente responsivo en todos los dispositivos
+
+== CONTEXTO DE LA APP ==
+- Plataforma: Flutter (Android e iOS)
+- Backend: Supabase (proyecto ypbotdsorlqklyxmqres)
+- Firebase: Push notifications, analytics
+- Anuncios: Google AdMob
+- Temática: Mundial 2026
+- Características principales: Trivias en tiempo real, predicciones, estadísticas de partidos, chat entre amigos, wallpapers coleccionables, pase mundialista, monedas virtuales, tienda, eventos diarios
